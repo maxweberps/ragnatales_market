@@ -51,10 +51,11 @@ while True:
                          '//*[@id="app"]/div/div/div[2]/div/div[2]/div[1]/label/div/div[1]/input').clear()  # limpa caixa de pesquisa
         nav.find_element('xpath', '//*[@id="app"]/div/div/div[2]/div/div[2]/div[1]/label/div/div[1]/input').send_keys(
             item)
+        time.sleep(3)
         # envia comando enter para pesquisa
         nav.find_element('xpath', '//*[@id="app"]/div/div/div[2]/div/div[2]/div[1]/label/div/div[1]/input').send_keys(
             Keys.ENTER)
-        time.sleep(5)
+        time.sleep(8)
         # coleta preço atual do item
         preco_atual = converter_para_intero(nav.find_element('xpath',
                                                              '//*[@id="app"]/div/div/div[2]/div/div[2]/div[2]/div/div/div/div/div/table/tbody/tr[1]/td[3]/div/span').text)
@@ -67,9 +68,11 @@ while True:
             print(f'> Preço alerta do item {item} alcançado!')
             print(f'> Enviando notificação via whatsapp...')
             nav.get('https://web.whatsapp.com')
+            time.sleep(5)
             # clicar na lupa
             # nav.find_element('xpath', '//*[@id="side"]/div[1]/div/div/button/div[2]/span').click()
             nav.find_element('xpath', '//*[@id="side"]/div[1]/div/div/div[2]/div/div[1]/p').send_keys("Max Silva TI")
+            time.sleep(2)
             nav.find_element('xpath', '//*[@id="side"]/div[1]/div/div/div[2]/div/div[1]/p').send_keys(Keys.ENTER)
             print('> Notificação enviada.')
             time.sleep(1)
@@ -78,6 +81,7 @@ while True:
             nav.find_element('xpath',
                              '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p').send_keys(
                 f'Preço alerta do item {item} alcançado! Preço atual: {itens_monitorados[item][1]}z')
+            time.sleep(1)
             nav.find_element('xpath',
                              '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p').send_keys(
                 Keys.ENTER)
@@ -88,4 +92,4 @@ while True:
             print(f'> Preço alerta do item {item} não alcançado.')
 
     nav.refresh()
-    time.sleep(5)  # intervalo de tempo entre as sessões de pesquisa
+    time.sleep(120)  # intervalo de tempo entre as sessões de pesquisa
