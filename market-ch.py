@@ -62,7 +62,7 @@ while True:
         print(f'Preço coletado: {preco_atual}z')
         itens_monitorados[item][1] = preco_atual
         print(
-            f'> Resumo:\nItem: {item}\nPreço alerta: {itens_monitorados[item][0]:.0f}z\nPreço atual: {itens_monitorados[item][1]}')
+            f'> Resumo:\nItem: {item}\nPreço alerta: {itens_monitorados[item][0]:.0f}z\nPreço atual: {itens_monitorados[item][1]}z')
         print('> Comparando preço atual com alerta...')
         if itens_monitorados[item][1] <= itens_monitorados[item][0]:
             print(f'> Preço alerta do item {item} alcançado!')
